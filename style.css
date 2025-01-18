@@ -1,0 +1,410 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: white;
+    border-bottom: 2px solid #E09900;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    color: #E09900 !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: black !important;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E09900 !important;
+    background-color: rgba(224, 153, 0, 0.1);
+    border-radius: 5px;
+}
+
+.navbar-toggler {
+    border-color: #E09900;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280,0,0,0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-nav .dropdown-menu {
+    border-color: #E09900;
+    background-color: white;
+}
+
+.navbar-nav .dropdown-item {
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #E09900;
+    color: white;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+}
+
+
+/*------------------------- Seção "Sobre" --------------------------------------------- */
+#about h2 {
+    text-transform: uppercase;
+    color: #E09900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Cartões Tecnológicos */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.tech-card {
+
+    border: 2px solid #E09900;
+    border-radius: 15px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(224, 153, 0, 0.8);
+}
+
+.tech-card .date {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #E09900;
+}
+
+.tech-card .description {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/*------------------------- --- --------------------------------------------- */
+
+/*------------------------- Seção "Topicos" --------------------------------------------- */
+
+
+#topics {
+    position: relative;
+    overflow: hidden;
+}
+
+#topics h2 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#topics p {
+    margin-bottom: 40px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+
+/*------------------------- --- --------------------------------------------- */
+
+
+/* Guia de Submissão Section */
+.submission-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+    color: #E09900;
+}
+
+.submission-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    position: relative;
+    animation: slideIn 1.5s ease-in-out;
+    color: #fff;
+}
+
+/* Highlights */
+.highlight {
+    color: #E09900;
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+
+/* ------------------------Participantes ---------------------------------------------------------------- */
+
+.participant-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.participant-card .front,
+.participant-card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #E09900;
+    border-radius: 10px;
+    transition: transform 0.6s;
+}
+
+.participant-card .front {
+    background: #0325579b;
+    color: #E09900;
+    font-weight: bold;
+}
+
+.participant-card .back {
+    background: #E09900;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.participant-card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.participant-card:hover .back {
+    transform: rotateY(0deg);
+}
+
+
+
+/* --------------------------Orientadores--------------------------------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    word-wrap: break-word;
+    text-align: left;
+    padding: 10px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+
+}
+
+.mentors-table-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #E09900, #ffcc66);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mentors-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 1rem;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mentors-table thead {
+    background: linear-gradient(90deg, #E09900, #ffcc66);
+    color: white;
+    text-transform: uppercase;
+}
+
+.mentors-table th {
+    padding: 15px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.mentors-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mentors-table tbody tr:hover {
+    background: #fdf4d9;
+    transform: scale(1.01);
+}
+
+.mentors-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mentors-table td a {
+    color: #E09900;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mentors-table td a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+.mentors-table td:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.mentors-table td:last-child {
+    text-align: center;
+    font-style: italic;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+section h2 {
+    color: #E09900;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+
+/* .................... Contactos......................    */
+
+#contacts {
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+#contacts h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.chatbot {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #002048;
+    border: 2px solid #E09900;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.bot-message {
+    background: #0f3562;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    color: #ffffff;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user-message {
+    background: #E09900;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: right;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contacts h2 {
+        font-size: 2.5rem;
+    }
+
+    .chatbot p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #E09900;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}

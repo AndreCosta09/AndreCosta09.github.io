@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMEI 2025 - Conferência Interna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">CIMEI 2025</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#topics">Tópicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#submission">Guia de Submissão</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#participants">Participantes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mentors">Orientadores</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="papersDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Papers</a>
+                        <ul class="dropdown-menu animate__animated animate__fadeIn" aria-labelledby="papersDropdown">
+                            <li><a class="dropdown-item" href="#">Paper 1</a></li>
+                            <li><a class="dropdown-item" href="#">Paper 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Edições</a>
+                        <ul class="dropdown-menu animate__animated animate__fadeIn" aria-labelledby="editionsDropdown">
+                            <li><a class="dropdown-item" href="https://cimei.wolfsmartindustries.pt/"
+                                    target="_blank">Edição 2022</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" style="height: 100vh; background: linear-gradient(135deg, #0b132b, #1f4068);">
+
+        <canvas id="heroCanvas" style="display: block; width: 100%; height: 100%;"></canvas>
+
+    </section>
+    <hr style="margin: 0px;color: #E09900;">
+    <section id="about" style="background: linear-gradient(210deg, #1f4068, #0b132b); color: #fff; padding: 50px 0;">
+        <div class="container text-center">
+            <h2 style="font-size: 3rem; font-weight: bold;">Sobre o Evento</h2>
+            <p style="font-size: 1.2rem; margin: 20px auto; max-width: 800px; color: #fff;">
+                A conferência <b>CIMEI 2025</b> será realizada no âmbito do Mestrado em Engenharia Informática do
+                Instituto Politécnico de Viana do Castelo, no dia <b>27 de Janeiro</b>, em Viana do Castelo, Portugal.
+            </p>
+            <div class="card-container"
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
+                <div class="tech-card">
+                    <p class="date">10 Jan</p>
+                    <p class="description">Submissão de artigos</p>
+                </div>
+                <div class="tech-card">
+                    <p class="date">19 Jan</p>
+                    <p class="description">Revisão dos artigos</p>
+                </div>
+                <div class="tech-card">
+                    <p class="date">27 Jan</p>
+                    <p class="description">Conferência</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="topics" style="height: 100vh; background: #1f4068; color: #fff; position: relative; overflow: hidden;">
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <h2 style="font-size: 3rem; font-weight: bold; color: #E09900;">Tópicos</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Principais temas abordados na conferência</p>
+        </div>
+        <canvas id="topicsCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+    </section>
+
+
+
+    <section id="submission" style="background: #1f4068; padding: 50px 0; color: white;">
+        <div class="container text-center">
+            <h2 class="submission-title">Guia de Submissão</h2>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="submission-text">
+                        <p>
+                            <strong>Os autores</strong> são convidados a submeter os trabalhos resultantes de pesquisas
+                            que apresentem
+                            contribuições científicas, análises do estado da arte e novas perspectivas de pesquisa,
+                            ideias e/ou arquiteturas inovadoras.
+                        </p>
+                        <p>
+                            <strong>Importante:</strong> O trabalho enviado não deve estar sob revisão em nenhum outro
+                            lugar. As submissões devem ser de Artigo completo (até
+                            <span class="highlight">8 páginas</span>).
+                        </p>
+                        <p>
+                            Os artigos devem ser submetidos num dos idiomas oficiais da conferência (<span
+                                class="underline">Português</span> ou <span class="underline">Inglês</span>)
+                            no formato PDF.
+                        </p>
+                        <p>
+                            <strong>Plataforma de submissão:</strong> As inscrições devem ser feitas usando o EasyChair.
+                            O link será fornecido em breve.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="margin: 0px;color: #E09900;">
+    <section id="participants" style="background: #1f4068; padding: 50px 0;">
+        <div class="container text-center">
+            <h2 style="font-size: 3rem; margin-bottom: 30px;">Participantes</h2>
+            <div class="row justify-content-center">
+                <!-- Participant Cards -->
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>André Costa</h3>
+                        </div>
+                        <div class="back">
+                            <p>Paradigma do Digital Twin na Predição e na assistência em fábricas inteligentes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Luis Rodrigues</h3>
+                        </div>
+                        <div class="back">
+                            <p>Adoção de Gamificação em aplicação móvel de apoio aos alunos no ensino superior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Gonçalo Quesado</h3>
+                        </div>
+                        <div class="back">
+                            <p>Uma Arquitetura de gêmeos digitais baseada em FIWARE para integração expedita de dados
+                                IIoT na indústria do Têxtil e Vestuário: o caso de uso da Têxteis Adalberto</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Valdo Mpinga</h3>
+                        </div>
+                        <div class="back">
+                            <p>Humanizando o processo desumano de recrutamento que utiliza Application Tracking Systems
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Luis Simão</h3>
+                        </div>
+                        <div class="back">
+                            <p>Gestão e Visualização de Indicadores de Sustentabilidade em Tempo Real</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Hugo Simão</h3>
+                        </div>
+                        <div class="back">
+                            <p>Plataforma de comercialização de fruta portuguesa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="participant-card">
+                        <div class="front">
+                            <h3>Ivan Amorim</h3>
+                        </div>
+                        <div class="back">
+                            <p>CogCELL5.0: Rumo à Célula Cognitiva na Indústria 5.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="mentors" style="background: #1f4068; padding: 50px 0;">
+        <div class="container text-center table-container">
+            <h2 style="font-size: 3rem; margin-bottom: 30px;">Orientadores</h2>
+            <table class="table table-hover table-bordered mentors-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Função</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Luís Barreto</td>
+                        <td><a href="mailto:lbarreto@esce.ipvc.pt">lbarreto@esce.ipvc.pt</a></td>
+                        <td>Professor Coordenador</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Castro</td>
+                        <td><a href="mailto:pmc@estg.ipvc.pt">pmc@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Faria</td>
+                        <td><a href="mailto:pfaria@estg.ipvc.pt">pfaria@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Estrela Ferreira Cruz</td>
+                        <td><a href="mailto:estrela.cruz@estg.ipvc.pt">estrela.cruz@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Jorge Esparteiro Garcia</td>
+                        <td><a href="mailto:jorgegarcia@esce.ipvc.pt">jorgegarcia@esce.ipvc.pt</a></td>
+                        <td>Professor Coordenador</td>
+                    </tr>
+                    <tr>
+                        <td>Sérgio Lopes</td>
+                        <td><a href="mailto:sil@estg.ipvc.pt">sil@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Miguel Moreira</td>
+                        <td><a href="mailto:pmoreira@estg.ipvc.pt">pmoreira@estg.ipvc.pt</a></td>
+                        <td>Professor Coordenador</td>
+                    </tr>
+                    <tr>
+                        <td>Sara Paiva</td>
+                        <td><a href="mailto:sara.paiva@estg.ipvc.pt">sara.paiva@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Jorge Ribeiro</td>
+                        <td><a href="mailto:jribeiro@estg.ipvc.pt">jribeiro@estg.ipvc.pt</a></td>
+                        <td>Professor Coordenador</td>
+                    </tr>
+                    <tr>
+                        <td>Luís Romero</td>
+                        <td><a href="mailto:romero@estg.ipvc.pt">romero@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>António Miguel Rosado da Cruz</td>
+                        <td><a href="mailto:miguel.cruz@estg.ipvc.pt">miguel.cruz@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Silvestre Malta</td>
+                        <td><a href="mailto:smalta@estg.ipvc.pt">smalta@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                    <tr>
+                        <td>Ricardo André Pereira Freitas</td>
+                        <td><a href="mailto:rifreitas@estg.ipvc.pt">rifreitas@estg.ipvc.pt</a></td>
+                        <td>Professor Adjunto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+    <section id="contacts" style="background-color: #021e40; padding: 50px 0;">
+        <div class="container text-center">
+            <h2 style="color: #E09900; font-size: 3rem; margin-bottom: 30px;">Contactos</h2>
+            <div class="chatbot">
+                <div class="bot-message">
+                    <p>Olá! Sou a assistente virtual do CIMEI 2025. Como posso ajudá-lo?</p>
+                </div>
+                <div class="user-message">
+                    <p>Preciso de informações sobre quem contactar.</p>
+                </div>
+                <div class="bot-message">
+                    <p>Claro! Pode entrar em contacto com:</p>
+                    <p><strong>Gonçalo Quesado</strong></p>
+                    <p>goncaloquesado@ipvc.pt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <p>&copy; 2025 CIMEI. Todos os direitos reservados.</p>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.152.0/three.min.js"></script>
+    <script src="three.js"></script>
+    <script src="script.js"></script>
+    <script src="topics.js"></script>
+
+</body>
+
+</html>
