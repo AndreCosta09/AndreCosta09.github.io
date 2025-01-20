@@ -2,8 +2,8 @@ function createDynamicTopics() {
     const canvas = document.getElementById('topicsCanvas');
     const ctx = canvas.getContext('2d');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth - 100;
+    canvas.height = window.innerHeight - 100;
 
     const topics = [
         { text: 'Artificial Intelligence', x: 200, y: 200 },
@@ -12,10 +12,7 @@ function createDynamicTopics() {
         { text: 'Virtual Reality', x: 600, y: 300 },
         { text: 'Augmented Reality', x: 500, y: 500 },
     ];
-
     const particles = [];
-
-
     topics.forEach((topic) => {
         particles.push({
             ...topic,
@@ -25,14 +22,11 @@ function createDynamicTopics() {
         });
 
     });
-
     let mouse = {
         x: null,
         y: null,
         radius: 100,
     };
-
-
     canvas.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
         mouse.x = event.clientX - rect.left;

@@ -203,6 +203,7 @@ section {
     background: #E09900;
     color: #ffffff;
     transform: rotateY(180deg);
+    padding: 10px;
 }
 
 .participant-card:hover .front {
@@ -213,6 +214,110 @@ section {
     transform: rotateY(0deg);
 }
 
+
+.btn-view-more {
+    background: linear-gradient(135deg, #0b132b, #1f4068);
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+
+.btn-view-more:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #0b132b, #1f4068);
+}
+
+
+/* Estilo geral do modal */
+.modal-content {
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+    background: linear-gradient(45deg, #0b132b, #1f4068);
+
+    color: white;
+    padding: 15px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: none;
+    text-align: center;
+}
+
+.modal-header .btn-close {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+/* Corpo do modal */
+.modal-body {
+    padding: 20px 30px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    /* Cor do texto */
+    font-family: 'Arial', sans-serif;
+    text-align: justify;
+    max-height: 400px;
+    /* Limita a altura para evitar overflow */
+    overflow-y: auto;
+    /* Adiciona scroll se necessário */
+}
+
+/* Adiciona um estilo de scrollbar para navegadores modernos */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #1E90FF;
+    border-radius: 4px;
+}
+
+/* Rodapé do modal (opcional) */
+.modal-footer {
+    background: #f7f7f7;
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #ddd;
+}
+
+/* Transição de exibição */
+.modal.fade .modal-dialog {
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: translateY(0);
+    opacity: 1;
+}
 
 
 /* --------------------------Orientadores--------------------------------- */

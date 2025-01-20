@@ -18,10 +18,18 @@ function createTextTexture(text, textColor, bgColor) {
     context.fillRect(0, 0, size, size);
 
     context.fillStyle = textColor;
-    context.font = 'bold 70px Arial';
+    context.font = 'bold 43px Arial';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
-    context.fillText(text, size / 2, size / 2);
+
+
+    const lines = text.split('\n');
+    const lineHeight = 50;
+    const startY = size / 2 - (lines.length - 1) * (lineHeight / 2);
+
+    lines.forEach((line, index) => {
+        context.fillText(line, size / 2, startY + index * lineHeight);
+    });
 
     return new THREE.CanvasTexture(canvas);
 }
@@ -29,18 +37,43 @@ function createTextTexture(text, textColor, bgColor) {
 
 const geometry = new THREE.BoxGeometry(20, 20, 20);
 const materials = [
-    new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/assets/estg-ipvc.png') }),
+    new THREE.MeshBasicMaterial({
+        map: new THREE.TextureLoader().load('/assets/estg-ipvc.png'),
+    }),
+
     new THREE.MeshBasicMaterial({ color: 0xE09900 }),
-    new THREE.MeshBasicMaterial({ map: createTextTexture('CIMEI 2025', '#FFFFFF', '#000000') }),
-    new THREE.MeshBasicMaterial({ map: createTextTexture('27 Janeiro', '#FFFFFF', '#E09900') }),
-    new THREE.MeshBasicMaterial({ color: 0xFFFFFF }),
-    new THREE.MeshBasicMaterial({ color: 0x000000 })
+
+    new THREE.MeshBasicMaterial({
+        map: createTextTexture(
+            'Mestrado em Engenharia\nInformática',
+            '#FFFFFF',
+            'rgba(255, 166, 1, 0.66)'
+        ),
+    }),
+
+    new THREE.MeshBasicMaterial({
+        map: createTextTexture('30 Janeiro', '#FFFFFF', '#E09900'),
+    }),
+
+    new THREE.MeshBasicMaterial({
+        map: createTextTexture(
+            'Hora de início: 18h\nHora de fim: 21h',
+            '#FFFFFF',
+            'rgb(247, 198, 54)'
+        ),
+    }),
+
+    new THREE.MeshBasicMaterial({ color: 0xFFD700 }),
 ];
+
+
+
 const cube = new THREE.Mesh(geometry, materials);
 
 
 
 cube.position.z = -10;
+cube.renderOrder = 1;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
@@ -55,6 +88,11 @@ function animate() {
     requestAnimationFrame(animate);
     cube.rotation.x += 0.005;
     cube.rotation.y += 0.005;
+
+
+
+    renderer.autoClear = false;
+    renderer.clear();
     renderer.render(scene, camera);
 }
 animate();
@@ -91,12 +129,15 @@ function createNeuralNetworkBackground() {
     const particlesMaterial = new THREE.PointsMaterial({
         color: 0xE09900,
         size: 0.2,
+        transparent: true,
+        depthTest: false,
     });
 
     const lineMaterial = new THREE.LineBasicMaterial({
         color: 0xffffff,
         transparent: true,
         opacity: 0.5,
+        depthTest: false,
     });
 
 
@@ -119,6 +160,7 @@ function createNeuralNetworkBackground() {
     );
 
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    particles.renderOrder = 0;
     scene.add(particles);
 
     const linesGeometry = new THREE.BufferGeometry();
@@ -158,7 +200,11 @@ function createNeuralNetworkBackground() {
     }
 
     const lines = new THREE.LineSegments(linesGeometry, lineMaterial);
+    lines.renderOrder = 0;
     scene.add(lines);
+
+
+
 
 
     function animateParticles() {
