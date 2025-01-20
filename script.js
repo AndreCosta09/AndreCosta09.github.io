@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-        
+
                 gsap.to(window, {
-                    duration: 1, 
-                    scrollTo: { y: targetElement.offsetTop - 50 }, 
+                    duration: 1,
+                    scrollTo: { y: targetElement.offsetTop - 50 },
                     ease: "power2.out"
                 });
 
@@ -31,3 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+

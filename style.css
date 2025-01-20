@@ -12,14 +12,15 @@ canvas {
 }
 
 
-
-
-
 /* Navbar Styling */
 .navbar {
     background-color: white;
     border-bottom: 2px solid #E09900;
     transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .navbar-brand {
@@ -262,6 +263,13 @@ table td {
     padding: 15px;
     font-size: 1.1rem;
     border-bottom: 2px solid #f0f0f0;
+}
+
+.mentors-table th,
+.mentors-table td {
+    background-color: #0e2f5e !important;
+    color: white !important;
+    padding: 10px;
 }
 
 .mentors-table tbody tr {

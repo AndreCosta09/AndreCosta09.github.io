@@ -6,10 +6,10 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('heroCanvas'), alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Function to create dynamic textures with text
+
 function createTextTexture(text, textColor, bgColor) {
     const canvas = document.createElement('canvas');
-    const size = 512; // Texture size
+    const size = 512;
     canvas.width = size;
     canvas.height = size;
 
@@ -26,21 +26,21 @@ function createTextTexture(text, textColor, bgColor) {
     return new THREE.CanvasTexture(canvas);
 }
 
-// Cube Geometry and Materials
+
 const geometry = new THREE.BoxGeometry(20, 20, 20);
 const materials = [
-    new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/assets/estg-ipvc.png') }), // Image face
-    new THREE.MeshBasicMaterial({ color: 0xE09900 }), 
+    new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/assets/estg-ipvc.png') }),
+    new THREE.MeshBasicMaterial({ color: 0xE09900 }),
     new THREE.MeshBasicMaterial({ map: createTextTexture('CIMEI 2025', '#FFFFFF', '#000000') }),
-    new THREE.MeshBasicMaterial({ map: createTextTexture('27 Janeiro', '#FFFFFF', '#E09900') }), 
-    new THREE.MeshBasicMaterial({ color: 0xFFFFFF }), 
-    new THREE.MeshBasicMaterial({ color: 0x000000 })  
+    new THREE.MeshBasicMaterial({ map: createTextTexture('27 Janeiro', '#FFFFFF', '#E09900') }),
+    new THREE.MeshBasicMaterial({ color: 0xFFFFFF }),
+    new THREE.MeshBasicMaterial({ color: 0x000000 })
 ];
 const cube = new THREE.Mesh(geometry, materials);
-scene.add(cube);
 
 
-cube.position.z = -15;
+
+cube.position.z = -10;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
@@ -53,14 +53,14 @@ scene.add(pointLight);
 camera.position.z = 20;
 function animate() {
     requestAnimationFrame(animate);
-    cube.rotation.x += 0.007;
-    cube.rotation.y += 0.007;
+    cube.rotation.x += 0.005;
+    cube.rotation.y += 0.005;
     renderer.render(scene, camera);
 }
 animate();
 
 
-// Responsive Canvas and Cube
+
 function updateResponsiveCube() {
     const heroSection = document.getElementById('hero');
     const sectionWidth = heroSection.offsetWidth;
@@ -72,8 +72,8 @@ function updateResponsiveCube() {
     camera.updateProjectionMatrix();
 
 
-    const scaleFactor = Math.min(sectionWidth, sectionHeight) / 500; 
-    cube.scale.set(scaleFactor/2, scaleFactor/2, scaleFactor/2); 
+    const scaleFactor = Math.min(sectionWidth, sectionHeight) / 500;
+    cube.scale.set(scaleFactor / 2, scaleFactor / 2, scaleFactor / 2);
 }
 
 
@@ -85,11 +85,11 @@ updateResponsiveCube();
 // FUNDO -------------------------------------------------------------------------------------
 function createNeuralNetworkBackground() {
     const particleCount = 100;
-    const range = 30; 
+    const range = 30;
 
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesMaterial = new THREE.PointsMaterial({
-        color: 0xE09900, 
+        color: 0xE09900,
         size: 0.2,
     });
 
@@ -99,7 +99,7 @@ function createNeuralNetworkBackground() {
         opacity: 0.5,
     });
 
- 
+
     const positions = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount * 3);
 
@@ -160,13 +160,13 @@ function createNeuralNetworkBackground() {
     const lines = new THREE.LineSegments(linesGeometry, lineMaterial);
     scene.add(lines);
 
-    // Animate particles and connections
+
     function animateParticles() {
         for (let i = 0; i < particleCount * 3; i++) {
             positions[i] += velocities[i];
 
             if (positions[i] > range / 2 || positions[i] < -range / 2) {
-                velocities[i] = -velocities[i]; // Reverse direction
+                velocities[i] = -velocities[i];
             }
         }
 
@@ -180,15 +180,16 @@ function createNeuralNetworkBackground() {
     animateParticles();
 }
 
-// Call the function
-createNeuralNetworkBackground();
 
+createNeuralNetworkBackground();
+scene.add(cube);
 // -------------------------------------------------------------------------------------------------------------------
 
 let isDragging = false;
 let previousMousePosition = { x: 0, y: 0 };
 
-// Add event listeners for mouse interaction
+
+
 document.addEventListener('mousedown', (e) => {
     isDragging = true;
 });
@@ -198,8 +199,8 @@ document.addEventListener('mousemove', (e) => {
         const deltaX = e.clientX - previousMousePosition.x;
         const deltaY = e.clientY - previousMousePosition.y;
 
-        cube.rotation.y += deltaX * 0.01; // Rotate cube horizontally
-        cube.rotation.x += deltaY * 0.01; // Rotate cube vertically
+        cube.rotation.y += deltaX * 0.01;
+        cube.rotation.x += deltaY * 0.01;
     }
     previousMousePosition = { x: e.clientX, y: e.clientY };
 });
@@ -208,7 +209,7 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
-// Add event listeners for touch interaction (mobile)
+
 document.addEventListener('touchstart', (e) => {
     isDragging = true;
     previousMousePosition = {
@@ -222,8 +223,8 @@ document.addEventListener('touchmove', (e) => {
         const deltaX = e.touches[0].clientX - previousMousePosition.x;
         const deltaY = e.touches[0].clientY - previousMousePosition.y;
 
-        cube.rotation.y += deltaX * 0.01; // Rotate cube horizontally
-        cube.rotation.x += deltaY * 0.01; // Rotate cube vertically
+        cube.rotation.y += deltaX * 0.01;
+        cube.rotation.x += deltaY * 0.01;
     }
     previousMousePosition = {
         x: e.touches[0].clientX,

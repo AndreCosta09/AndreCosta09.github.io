@@ -15,23 +15,24 @@ function createDynamicTopics() {
 
     const particles = [];
 
-    // Create particles based on topics
+
     topics.forEach((topic) => {
         particles.push({
             ...topic,
-            radius: window.innerWidth <= 768 ? 20 : 50, // Adjust size for smaller screens and desktop
+            radius: Math.max(30, window.innerWidth <= 768 ? 30 : 50),
             vx: (Math.random() - 0.5) * 1,
             vy: (Math.random() - 0.5) * 1,
         });
+
     });
 
     let mouse = {
         x: null,
         y: null,
-        radius: 100, // Interaction radius
+        radius: 100,
     };
 
-    // Capture mouse position
+
     canvas.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
         mouse.x = event.clientX - rect.left;
@@ -47,24 +48,23 @@ function createDynamicTopics() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.forEach((particle) => {
-            // Draw circle
+
             ctx.beginPath();
             ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
             ctx.fillStyle = '#E09900';
             ctx.fill();
 
-            // Draw text inside the circle
-            ctx.font = `${Math.max(particle.radius / 3, 10)}px Arial`; // Ensure text is proportional
+            ctx.font = `${Math.max(particle.radius / 3, 10)}px Arial`;
             ctx.fillStyle = '#fff';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            const textLines = particle.text.split(' '); // Split text into multiple lines
+            const textLines = particle.text.split(' ');
             textLines.forEach((line, index) => {
                 ctx.fillText(line, particle.x, particle.y - (textLines.length / 2 - index) * 12);
             });
         });
 
-        // Connect particles with lines
+
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
@@ -89,7 +89,7 @@ function createDynamicTopics() {
             particle.x += particle.vx;
             particle.y += particle.vy;
 
-            // Bounce off edges
+
             if (particle.x + particle.radius > canvas.width) {
                 particle.x = canvas.width - particle.radius;
                 particle.vx = -particle.vx;
@@ -107,7 +107,7 @@ function createDynamicTopics() {
                 particle.vy = -particle.vy;
             }
 
-            // Interaction with mouse
+
             if (mouse.x && mouse.y) {
                 const dx = mouse.x - particle.x;
                 const dy = mouse.y - particle.y;
@@ -130,28 +130,27 @@ function createDynamicTopics() {
 
     animate();
 
-    // Adjust particles position on page load for small screens
+
     if (window.innerWidth <= 768) {
         particles.forEach((particle, index) => {
-            particle.x = canvas.width / 2 + (index % 2 === 0 ? -50 : 50); // Offset slightly for spacing
+            particle.x = canvas.width / 2 + (index % 2 === 0 ? -50 : 50);
             particle.y = canvas.height / 2 + (index % 3 === 0 ? -50 : 50);
         });
     }
 
-    // Update canvas size and particle size on window resize
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         particles.forEach((particle, index) => {
-            particle.radius = window.innerWidth <= 768 ? 20 : 50; // Adjust size on resize
+            particle.radius = Math.max(30, window.innerWidth <= 768 ? 30 : 50);
 
-            // Move particles closer to the center on small screens
+
             if (window.innerWidth <= 768) {
-                particle.x = canvas.width / 2 + (index % 2 === 0 ? -50 : 50); // Offset slightly for spacing
+                particle.x = canvas.width / 2 + (index % 2 === 0 ? -50 : 50);
                 particle.y = canvas.height / 2 + (index % 3 === 0 ? -50 : 50);
             } else {
-                // Ensure particles are within canvas bounds for larger screens
+
                 particle.x = Math.max(particle.radius, Math.min(canvas.width - particle.radius, particle.x));
                 particle.y = Math.max(particle.radius, Math.min(canvas.height - particle.radius, particle.y));
             }
