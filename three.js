@@ -228,7 +228,7 @@ function createNeuralNetworkBackground() {
 
 
 createNeuralNetworkBackground();
-scene.add(cube);
+
 // -------------------------------------------------------------------------------------------------------------------
 
 let isDragging = false;

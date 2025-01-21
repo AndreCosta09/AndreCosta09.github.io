@@ -45,13 +45,29 @@
         </div>
     </nav>
 
-    <section id="hero" style="height: 100vh; background: linear-gradient(135deg, #0b132b, #1f4068);">
-
+    <section id="hero"
+        style="height: 100vh; background: linear-gradient(135deg, #0b132b, #1f4068); position: relative;">
+        <div id="heroText">
+            <h1
+                style="color: #E09900; font-size: 5rem; font-family: 'Arial', sans-serif; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px;">
+                CIMEI25
+            </h1>
+            <p
+                style="color: #FFFFFF; font-size: 1.5rem; font-weight: 300; font-family: 'Arial', sans-serif; margin-bottom: 20px;">
+                <span style="border-bottom: 2px solid #E09900; padding-bottom: 5px;">
+                    Conferência Interna do Mestrado em Engenharia Informática 2025
+                </span>
+            </p>
+            <p
+                style="color: #FFD700; font-size: 1.3rem; font-family: 'Courier New', monospace; letter-spacing: 1px; background: rgba(224, 153, 0, 0.2); padding: 10px 20px; border-radius: 5px; display: inline-block;">
+                30 de Janeiro
+            </p>
+        </div>
         <canvas id="heroCanvas"
-            style="display: block; width: 100%; height: 100%; position: relative; z-index: 3;"></canvas>
-
-
+            style="display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 3;">
+        </canvas>
     </section>
+
 
     <section id="about" style="background: linear-gradient(210deg, #1f4068, #0b132b); color: #fff; padding: 50px 0;">
         <div class="container text-center">
